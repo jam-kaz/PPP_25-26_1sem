@@ -1,8 +1,13 @@
-s = input('Введите строку из букв латинского алфавита разных регистров:')
-for char in s:
-    if not ('a' <= char.lower() <= 'z'):
-      s = input("Введите строку корректно, по условию!:")
+stroka = input('Введите строку из букв латинского алфавита разных регистров: ')
+def proverka(f):
+    k = ''
+    for i in f:
+        k = k + i.lower()
+    return k.isalpha()
+    
 
+while proverka(stroka) == False:
+    stroka = input("Введите строку корректно, по условию!: ")
      
 def clean_string(input_str):
     count_lower = {}
@@ -24,3 +29,5 @@ def clean_string(input_str):
                 cleaned += char
                
     return cleaned
+
+print(clean_string(stroka))
