@@ -129,7 +129,7 @@ intervals = [
 
 
 result_format, result_value = process_intervals(intervals, 'avg')
-print(f"Average: {result_format}, Average Duration: {result_value:.2f} sec.")
+print(f"Average: {result_format}")
 
 result_format, _ = process_intervals(intervals, 'max')
 print(f"Max: {result_format}")
