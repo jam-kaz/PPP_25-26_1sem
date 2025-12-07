@@ -10,7 +10,6 @@ class TimeInterval(ABC):
         pass
 
 
-# Конкретные реализации классов для временных интервалов
 class HMSInterval(TimeInterval):
     def __init__(self, hours=0, minutes=0, seconds=0):
         self.hours = int(hours)
@@ -78,7 +77,7 @@ class HoursInterval(TimeInterval):
         return f"{hours}h {minutes}m {seconds}s"
 
 
-# Обработка команд (сумма, среднее, максимум, минимум)
+
 def process_intervals(intervals, command):
     if not intervals or len(intervals) == 0:
         raise ValueError("No intervals provided")
@@ -128,22 +127,12 @@ intervals = [
         HoursInterval(hours=2.5)
     ]
 
-print("\nProcessing intervals:")
-for i, interval in enumerate(intervals):
-    print(f"Interval #{i+1}: {interval.to_human_readable()} ({interval.duration_in_seconds():.2f} sec.)")
 
-    # Суммируем интервалы
-result_format, result_value = process_intervals(intervals, 'sum')
-print(f"\nSum of all intervals: {result_format}, Total Duration: {result_value:.2f} sec.")
-
-    # Среднее значение
 result_format, result_value = process_intervals(intervals, 'avg')
-print(f"Average of all intervals: {result_format}, Average Duration: {result_value:.2f} sec.")
+print(f"Average: {result_format}, Average Duration: {result_value:.2f} sec.")
 
-    # Максимальный интервал
 result_format, _ = process_intervals(intervals, 'max')
-print(f"Maximum interval: {result_format}")
+print(f"Max: {result_format}")
 
-    # Минимальный интервал
 result_format, _ = process_intervals(intervals, 'min')
-print(f"Minimum interval: {result_format}")
+print(f"Min: {result_format}")
